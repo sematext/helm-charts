@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  sematext-agent:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-07-21T12:54:28.985626+03:00"
+    description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
+    digest: 5f4c89f5289b38ea686ccf3fd003678c74124776eec0803c11fb8d3b116f7dec
+    home: https://sematext.com/cloud
+    icon: https://cdn.sematext.com/octi-square-logo.png
+    keywords:
+    - sematext
+    - observability
+    - monitoring
+    - logging
+    - containers
+    - ebpf
+    maintainers:
+    - email: ciprian.hacman@sematext.com
+      name: hakman
+    name: sematext-agent
+    urls:
+    - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.29.tgz
+    version: 1.0.29
+generated: "2020-07-21T12:54:28.984388+03:00"
