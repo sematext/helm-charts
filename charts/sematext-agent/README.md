@@ -16,31 +16,34 @@ This chart installs the Sematext Agent to all nodes in your cluster via a `Daemo
 To install the chart to ship logs run the following command:
 
 ```bash
+$ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-logagent  \
     --set logsToken=YOUR_LOGS_TOKEN \
     --set region=US \
-    stable/sematext-agent
+    sematext/sematext-agent
 ```
 
 To install the chart for monitoring run the following command:
 
 ```bash
+$ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set containerToken=YOUR_CONTAINER_TOKEN \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
-    stable/sematext-agent
+    sematext/sematext-agent
 ```
 
 To install the chart for both logs and monitoring run the following command:
 
 ```bash
+$ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set logsToken=YOUR_LOGS_TOKEN \
     --set containerToken=YOUR_CONTAINER_TOKEN \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
-    stable/sematext-agent
+    sematext/sematext-agent
 ```
 
 After a few minutes, you should see logs, metrics, and events reported in Sematext web UI.
@@ -98,17 +101,19 @@ The following table lists the configuration parameters of the `sematext-agent` c
 Specify each parameter using the `--set key=value` argument to `helm install`. For example:
 
 ```bash
+$ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set containerToken=YOUR_CONTAINER_TOKEN \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
     --set agent.image.tag=0.18.3 \
     --set agent.image.pullPolicy=IfNotPresent \
-    stable/sematext-agent
+    sematext/sematext-agent
 ```
 
 Alternatively, you can use a YAML file that specifies the values while installing the chart. For example:
 
 ```bash
-$ helm install st-agent -f custom_values.yaml stable/sematext-agent
+$ helm repo add sematext https://cdn.sematext.com/helm-charts/
+$ helm install st-agent -f custom_values.yaml sematext/sematext-agent
 ```
