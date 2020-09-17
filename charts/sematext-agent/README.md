@@ -97,6 +97,7 @@ The following table lists the configuration parameters of the `sematext-agent` c
 | `serverBaseUrl`                  | Custom Base URL                   | `Nil`                                     |
 | `logsReceiverUrl`                | Custom Logs receiver URL          | `Nil`                                     |
 | `eventsReceiverUrl`              | Custom Event receiver URL         | `Nil`                                     |
+| `commandServerUrl`               | Custom Command server URL         | `Nil`                                     |
 
 Specify each parameter using the `--set key=value` argument to `helm install`. For example:
 

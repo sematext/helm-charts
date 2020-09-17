@@ -22,3 +22,6 @@ data:
   LOGS_RECEIVER_URL: {{ default "" .Values.logsReceiverUrl | quote }}
   {{- end }}
   API_SERVER_PORT: "{{ .Values.agent.service.port }}"
+  {{- if .Values.commandServerUrl }}
+  COMMAND_SERVER_URL: {{ default "" .Values.commandServerUrl | quote }}
+  {{- end }}

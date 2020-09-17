@@ -75,6 +75,7 @@ region: US
 serverBaseUrl: null
 eventsReceiverUrl: null
 logsReceiverUrl: null
+commandServerUrl: null
 
 tolerations: []
 
