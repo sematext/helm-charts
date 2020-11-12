@@ -21,9 +21,20 @@ logagent:
     repository: sematext/logagent
     tag: latest
     pullPolicy: Always
+  
+  # Refer to Logagent docs for adding env vars to the config at https://sematext.com/docs/logagent/installation-docker/#configuration-parameters
+  # Any Logagent env var can be added here in the `config`.
   config:
     LOGSENE_BULK_SIZE: "1000"
     LOGSENE_LOG_INTERVAL: "10000"
+    # LOG_GLOB: "/var/log/*" # if you are using the Containerd container runtime in Kubernetes, set this value. Otherwise ignore it.
+    # IGNORE_LOGS_PATTERN: "healthcheck|ping" # Drops logs with a regular expression.
+    # MATCH_BY_NAME: ".*nginx.*" # Regular expression to include sending logs from these container names.
+    # MATCH_BY_IMAGE: ".*nginx.*" # Regular expression to include sending logs from these image names.
+    # SKIP_BY_NAME: ".*nginx.*" # Regular expression to exclude sending logs from these container names.
+    # SKIP_BY_IMAGE: ".*nginx.*" # Regular expression to exclude sending logs from these image names.
+    # REMOVE_FIELDS: "password,creditCardNo" # Removes fields from parsed/enriched logs.
+
   # Refer to logagent docs for custom config at https://sematext.com/docs/logagent/config-file/
   customConfigs: []
     # logagent.conf: |-

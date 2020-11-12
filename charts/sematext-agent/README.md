@@ -70,34 +70,41 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configuration parameters of the `sematext-agent` chart and default values.
 
-|             Parameter            |            Description            |                  Default                  |
-|----------------------------------|-----------------------------------|-------------------------------------------|
-| `containerToken`                 | Sematext Container token          | `Nil` Provide your Container token        |
-| `logsToken`                      | Sematext Logs token               | `Nil` Provide your Logs token             |
-| `infraToken`                     | Sematext Infra token              | `Nil` Provide your Infra token            |
-| `region`                         | Sematext region                   | `US` Sematext US or EU region             |
-| `agent.image.repository`         | The image repository              | `sematext/agent`                          |
-| `agent.image.tag`                | The image tag                     | `latest`                                  |
-| `agent.image.pullPolicy`         | Image pull policy                 | `Always`                                  |
-| `agent.service.port`             | Service port                      | `80`                                      |
-| `agent.service.type`             | Service type                      | `ClusterIP`                               |
-| `agent.resources`                | Agent resources                   | `{}`                                      |
-| `logagent.image.repository`      | The image repository              | `sematext/logagent`                       |
-| `logagent.image.tag`             | The image tag                     | `latest`                                  |
-| `logagent.image.pullPolicy`      | Image pull policy                 | `Always`                                  |
-| `logagent.resources`             | Logagent resources                | `{}`                                      |
-| `logagent.customConfigs`         | Logagent custom configs           | `[]` Check `values.yaml`                  |
-| `logagent.extraHostVolumeMounts` | Extra mounts                      | `{}`                                      |
-| `serviceAccount.create`          | Create a service account          | `true`                                    |
-| `serviceAccount.name`            | Service account name              | `Nil` Defaults to chart name              |
-| `priorityClassName`              | Priority class name               | `Nil`                                     |
-| `rbac.create`                    | RBAC enabled                      | `true`                                    |
-| `tolerations`                    | Tolerations                       | `[]`                                      |
-| `nodeSelector`                   | Node selector                     | `{}`                                      |
-| `serverBaseUrl`                  | Custom Base URL                   | `Nil`                                     |
-| `logsReceiverUrl`                | Custom Logs receiver URL          | `Nil`                                     |
-| `eventsReceiverUrl`              | Custom Event receiver URL         | `Nil`                                     |
-| `commandServerUrl`               | Custom Command server URL         | `Nil`                                     |
+|             Parameter                  |            Description            |                  Default                  |
+|----------------------------------------|-----------------------------------|-------------------------------------------|
+| `containerToken`                       | Sematext Container token          | `Nil` Provide your Container token        |
+| `logsToken`                            | Sematext Logs token               | `Nil` Provide your Logs token             |
+| `infraToken`                           | Sematext Infra token              | `Nil` Provide your Infra token            |
+| `region`                               | Sematext region                   | `US` Sematext US or EU region             |
+| `agent.image.repository`               | The image repository              | `sematext/agent`                          |
+| `agent.image.tag`                      | The image tag                     | `latest`                                  |
+| `agent.image.pullPolicy`               | Image pull policy                 | `Always`                                  |
+| `agent.service.port`                   | Service port                      | `80`                                      |
+| `agent.service.type`                   | Service type                      | `ClusterIP`                               |
+| `agent.resources`                      | Agent resources                   | `{}`                                      |
+| `logagent.image.repository`            | The image repository              | `sematext/logagent`                       |
+| `logagent.image.tag`                   | The image tag                     | `latest`                                  |
+| `logagent.image.pullPolicy`            | Image pull policy                 | `Always`                                  |
+| `logagent.config.LOG_GLOB`             | Set Glob for Containerd           | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#optional-parameters). |
+| `logagent.config.IGNORE_LOGS_PATTERN`  | Drops logs with a regex           | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#docker-logs-parameters). |
+| `logagent.config.MATCH_BY_NAME`        | Include logs for container name   | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#whitelist-containers-for-logging). |
+| `logagent.config.MATCH_BY_IMAGE`       | Include logs for image name       | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#whitelist-containers-for-logging). |
+| `logagent.config.SKIP_BY_NAME`         | Exclude logs for container name   | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#blacklist-containers). |
+| `logagent.config.SKIP_BY_IMAGE`        | Exclude logs for image name       | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#blacklist-containers). |
+| `logagent.config.REMOVE_FIELDS`        | Remove fields from parsed logs    | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#other-options). |
+| `logagent.resources`                   | Logagent resources                | `{}`                                      |
+| `logagent.customConfigs`               | Logagent custom configs           | `[]` Check `values.yaml`                  |
+| `logagent.extraHostVolumeMounts`       | Extra mounts                      | `{}`                                      |
+| `serviceAccount.create`                | Create a service account          | `true`                                    |
+| `serviceAccount.name`                  | Service account name              | `Nil` Defaults to chart name              |
+| `priorityClassName`                    | Priority class name               | `Nil`                                     |
+| `rbac.create`                          | RBAC enabled                      | `true`                                    |
+| `tolerations`                          | Tolerations                       | `[]`                                      |
+| `nodeSelector`                         | Node selector                     | `{}`                                      |
+| `serverBaseUrl`                        | Custom Base URL                   | `Nil`                                     |
+| `logsReceiverUrl`                      | Custom Logs receiver URL          | `Nil`                                     |
+| `eventsReceiverUrl`                    | Custom Event receiver URL         | `Nil`                                     |
+| `commandServerUrl`                     | Custom Command server URL         | `Nil`                                     |
 
 Specify each parameter using the `--set key=value` argument to `helm install`. For example:
 
