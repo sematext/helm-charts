@@ -3,9 +3,9 @@ entries:
   sematext-agent:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-24T12:59:45.697904+03:00"
+    created: "2020-11-13T16:02:05.967967+02:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
-    digest: d692f4f01069d834268b2908cca84d97596a703cac2173dc5c6e563b84345b47
+    digest: a3066c2ed1a1ee8519949bfd90c4e8c7c6ff4a90874590bc4df3465a9adaaff7
     home: https://sematext.com/cloud
     icon: https://cdn.sematext.com/octi-square-logo.png
     keywords:
@@ -20,11 +20,32 @@ entries:
       name: Ciprian Hacman
     name: sematext-agent
     urls:
-    - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.31.tgz
-    version: 1.0.31
+    - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.33.tgz
+    version: 1.0.33
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-07-24T12:59:45.697248+03:00"
+    created: "2020-11-13T16:02:05.967327+02:00"
+    description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
+    digest: 19370a0296d8e5e562d173538ea6804fe80afb32e5087770e29b0582063b397c
+    home: https://sematext.com/cloud
+    icon: https://cdn.sematext.com/octi-square-logo.png
+    keywords:
+    - sematext
+    - observability
+    - monitoring
+    - logging
+    - containers
+    - ebpf
+    maintainers:
+    - email: ciprian.hacman@sematext.com
+      name: Ciprian Hacman
+    name: sematext-agent
+    urls:
+    - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.32.tgz
+    version: 1.0.32
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-11-13T16:02:05.965979+02:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 5f4c89f5289b38ea686ccf3fd003678c74124776eec0803c11fb8d3b116f7dec
     home: https://sematext.com/cloud
@@ -43,4 +64,4 @@ entries:
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.29.tgz
     version: 1.0.29
-generated: "2020-07-24T12:59:45.694425+03:00"
+generated: "2020-11-13T16:02:05.962043+02:00"
