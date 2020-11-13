@@ -85,13 +85,13 @@ The following table lists the configuration parameters of the `sematext-agent` c
 | `logagent.image.repository`            | The image repository              | `sematext/logagent`                       |
 | `logagent.image.tag`                   | The image tag                     | `latest`                                  |
 | `logagent.image.pullPolicy`            | Image pull policy                 | `Always`                                  |
-| `logagent.config.LOG_GLOB`             | Set Glob for Containerd           | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#optional-parameters). |
-| `logagent.config.IGNORE_LOGS_PATTERN`  | Drops logs with a regex           | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#docker-logs-parameters). |
-| `logagent.config.MATCH_BY_NAME`        | Include logs for container name   | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#whitelist-containers-for-logging). |
-| `logagent.config.MATCH_BY_IMAGE`       | Include logs for image name       | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#whitelist-containers-for-logging). |
-| `logagent.config.SKIP_BY_NAME`         | Exclude logs for container name   | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#blacklist-containers). |
-| `logagent.config.SKIP_BY_IMAGE`        | Exclude logs for image name       | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#blacklist-containers). |
-| `logagent.config.REMOVE_FIELDS`        | Remove fields from parsed logs    | `Nil` Check `values.yaml`. [More Info](https://sematext.com/docs/logagent/installation-docker/#other-options). |
+| `logagent.config.LOG_GLOB`             | Set Glob for Containerd           | `Nil` Check `values.yaml`                |
+| `logagent.config.IGNORE_LOGS_PATTERN`  | Drops logs with a regex           | `Nil` Check `values.yaml`                |
+| `logagent.config.MATCH_BY_NAME`        | Include logs for container name   | `Nil` Check `values.yaml`                |
+| `logagent.config.MATCH_BY_IMAGE`       | Include logs for image name       | `Nil` Check `values.yaml`                |
+| `logagent.config.SKIP_BY_NAME`         | Exclude logs for container name   | `Nil` Check `values.yaml`                |
+| `logagent.config.SKIP_BY_IMAGE`        | Exclude logs for image name       | `Nil` Check `values.yaml`                |
+| `logagent.config.REMOVE_FIELDS`        | Remove fields from parsed logs    | `Nil` Check `values.yaml`                |
 | `logagent.resources`                   | Logagent resources                | `{}`                                      |
 | `logagent.customConfigs`               | Logagent custom configs           | `[]` Check `values.yaml`                  |
 | `logagent.extraHostVolumeMounts`       | Extra mounts                      | `{}`                                      |

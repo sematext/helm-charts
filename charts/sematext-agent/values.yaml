@@ -22,7 +22,8 @@ logagent:
     tag: latest
     pullPolicy: Always
   
-  # Refer to Logagent docs for adding env vars to the config at https://sematext.com/docs/logagent/installation-docker/#configuration-parameters
+  # Refer to Logagent docs for adding env vars to the config at 
+  # https://sematext.com/docs/logagent/installation-docker/#configuration-parameters
   # Any Logagent env var can be added here in the `config`.
   config:
     LOGSENE_BULK_SIZE: "1000"
