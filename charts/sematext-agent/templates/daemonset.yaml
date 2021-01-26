@@ -68,6 +68,11 @@ spec:
             httpGet:
               path: /health
               port: {{ .Values.agent.service.port }}
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.agent.service.port }}
+            failureThreshold: 6
           volumeMounts:
             - name: hostfs
               mountPath: /hostfs
