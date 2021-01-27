@@ -64,10 +64,6 @@ spec:
             httpGet:
               path: /health
               port: {{ .Values.agent.service.port }}
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: {{ .Values.agent.service.port }}
           startupProbe:
             httpGet:
               path: /health
