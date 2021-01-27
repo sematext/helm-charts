@@ -56,6 +56,14 @@ rules:
   - list
   - get
 - apiGroups:
+  - apps
+  resources:
+  - daemonsets
+  verbs:
+  - get
+  - create
+  - delete
+- apiGroups:
   - extensions
   resources:
   - replicasets
