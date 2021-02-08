@@ -19,7 +19,7 @@ rules:
   - list
   - get
   - watch
-{{- if or (.Values.containerToken) (.Values.infraToken) }}
+{{- if .Values.infraToken }}
 - apiGroups:
   - ""
   resources:

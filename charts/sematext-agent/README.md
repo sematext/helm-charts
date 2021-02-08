@@ -28,7 +28,6 @@ To install the chart for monitoring run the following command:
 ```bash
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
-    --set containerToken=YOUR_CONTAINER_TOKEN \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
     sematext/sematext-agent
@@ -40,7 +39,6 @@ To install the chart for both logs and monitoring run the following command:
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set logsToken=YOUR_LOGS_TOKEN \
-    --set containerToken=YOUR_CONTAINER_TOKEN \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
     sematext/sematext-agent
@@ -72,7 +70,6 @@ The following table lists the configuration parameters of the `sematext-agent` c
 
 |             Parameter                  |            Description            |                  Default                  |
 |----------------------------------------|-----------------------------------|-------------------------------------------|
-| `containerToken`                       | Sematext Container token          | `Nil` Provide your Container token        |
 | `logsToken`                            | Sematext Logs token               | `Nil` Provide your Logs token             |
 | `infraToken`                           | Sematext Infra token              | `Nil` Provide your Infra token            |
 | `region`                               | Sematext region                   | `US` Sematext US or EU region             |
@@ -111,7 +108,6 @@ Specify each parameter using the `--set key=value` argument to `helm install`. F
 ```bash
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
-    --set containerToken=YOUR_CONTAINER_TOKEN \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
     --set agent.image.tag=0.18.3 \

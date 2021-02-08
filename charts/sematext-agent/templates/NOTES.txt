@@ -1,14 +1,13 @@
-{{- if and (not .Values.containerToken) (not .Values.logsToken) -}}
+{{- if and (not .Values.infraToken) (not .Values.logsToken) -}}
 
 ###############################################################################
-#           ERROR: Please provide containerToken and/or logsToken!            #
+#           ERROR: Please provide infraToken and/or logsToken!            #
 ###############################################################################
 
 Depending on which region you want to use, create a container and/or logs apps
 to get your tokens. Then, start the app for monitoring with:
 
 helm install st-agent \
-  --set sematext.containerToken=YOUR_CONTAINER_TOKEN \
   --set sematext.infraToken=YOUR_INFRA_TOKEN \
   --set region={{ .Values.region }} \
   stable/sematext-agent
@@ -23,7 +22,6 @@ helm install st-agent \
 Or start the app with both:
 
 helm install st-agent \
-  --set containerToken=YOUR_CONTAINER_TOKEN \
   --set sematext.infraToken=YOUR_INFRA_TOKEN \
   --set logsToken=YOUR_LOGS_TOKEN \
   --set region={{ .Values.region }} \
@@ -40,9 +38,9 @@ After a few minutes check your app at https://apps.sematext.com/ui/monitoring
 After a few minutes check your app at https://apps.eu.sematext.com/ui/monitoring
 {{ end }}
 
-{{- else if not .Values.containerToken -}}
+{{- else if not .Values.infraToken -}}
 
-Missing containerToken! You will only receive logs.
+Missing infraToken! You will only receive logs.
 {{ if eq .Values.region "US" }}
 After a few minutes check your app at https://apps.sematext.com/ui/logs
 {{ else if eq .Values.region "EU" }}
