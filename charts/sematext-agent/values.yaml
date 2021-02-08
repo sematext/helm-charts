@@ -71,10 +71,8 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name:
 
-# represents the infra token where most metrics, packages, processes, etc. are shipped
+# represents the infra token where most metrics, packages, processes, etc. are shipped (including container related)
 infraToken: null
-# determines the token for the container app (container metrics are delivered here)
-containerToken: null
 # logs token to send logs
 logsToken: null
 
