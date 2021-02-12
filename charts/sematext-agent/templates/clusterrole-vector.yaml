@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: sematext-vector
+  name: {{ template "sematext-agent.fullname" . }}-vector
   labels:
     app: {{ template "sematext-agent.name" . }}-vector
     chart: {{ template "sematext-agent.chart" . }}
