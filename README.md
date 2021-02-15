@@ -7,3 +7,7 @@ for more info on how to set up and configure the agent to ship logs and metrics.
 ## Contributing
 We welcome bug fixes or feature enhancements to Sematext Helm Charts. When done working on and testing,
 just submit a pull request to have one of the maintainers review and merge your changes.
+
+## Publishing
+
+See the instructions [here](https://sematext.atlassian.net/wiki/spaces/INTERNAL/pages/2444296197/Sematext-agent+helm+chart+deployment).
