@@ -14,7 +14,10 @@ agent:
     LOGGING_REQUEST_TRACKING: false
     AUTODISCO_ALLOWED_NAMESPACES: "default"
     LOGGING_LEVEL: info
-  resources: {}
+  resources:
+      limits:
+        memory: "512Mi"
+        cpu: "300m"  
 
 logagent:
   image:
