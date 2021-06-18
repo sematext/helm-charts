@@ -59,11 +59,19 @@ spec:
             httpGet:
               path: /health
               port: {{ .Values.agent.service.port }}
+          {{- if (semverCompare ">=1.16-0" .Capabilities.KubeVersion.GitVersion) }}
           startupProbe:
             httpGet:
               path: /health
               port: {{ .Values.agent.service.port }}
             failureThreshold: 6
+          {{- else }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.agent.service.port }}
+            failureThreshold: 6
+          {{- end }}
           volumeMounts:
             - name: hostfs
               mountPath: /hostfs
