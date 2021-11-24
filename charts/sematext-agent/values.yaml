@@ -17,7 +17,7 @@ agent:
   resources:
       limits:
         memory: "512Mi"
-        cpu: "600m"  
+        cpu: "1000m"  
 
 logagent:
   image:
