@@ -44,6 +44,23 @@ $ helm install st-agent \
     sematext/sematext-agent
 ```
 
+To provide logs and infra tokens as a kubernetes secret instead, create a secret with `infra-token` and `logs-token` keys, and provide its name to the install command:
+
+```bash
+$ kubectl create secret generic sematext-secret \
+    --from-literal=infra-token=YOUR_INFRA_TOKEN \
+    --from-literal=logs-token=YOUR_LOGS_TOKEN
+$ helm repo add sematext https://cdn.sematext.com/helm-charts/
+$ helm install st-agent \
+    --set existingSecret.name=sematext-secret \
+    --set existingSecret.hasInfraToken=true \
+    --set existingSecret.hasLogsToken=true \
+    --set region=US \
+    sematext/sematext-agent
+```
+
+
+
 After a few minutes, you should see logs, metrics, and events reported in Sematext web UI.
 
 **NOTE:** If you want to use Sematext hosted in the EU region set the region parameter to `--set region=EU`. Also, it is worth mentioning that the agent is running as a privileged container.
@@ -72,6 +89,9 @@ The following table lists the configuration parameters of the `sematext-agent` c
 |----------------------------------------|-----------------------------------|-------------------------------------------|
 | `logsToken`                            | Sematext Logs token               | `Nil` Provide your Logs token             |
 | `infraToken`                           | Sematext Infra token              | `Nil` Provide your Infra token            |
+| `existingSecret.name`                  | Secret with infra/logs tokens     | `Nil` Provide an existing secret          |
+| `existingSecret.hasLogsToken`          | Does secret contain logs token    | `false` Enable if secret has logsToken    |
+| `existingSecret.hasInfraToken`         | Does secret contain infra token   | `false` Enable if secret has infraToken   |
 | `region`                               | Sematext region                   | `US` Sematext US or EU region             |
 | `agent.image.repository`               | The image repository              | `sematext/agent`                          |
 | `agent.image.tag`                      | The image tag                     | `latest`                                  |

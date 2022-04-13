@@ -1,4 +1,4 @@
-{{- if and (not .Values.infraToken) (not .Values.logsToken) -}}
+{{- if and (not .Values.infraToken) (not .Values.logsToken) (not .Values.existingSecret.name) -}}
 
 ###############################################################################
 #           ERROR: Please provide infraToken and/or logsToken!            #
@@ -29,7 +29,7 @@ helm install st-agent \
 
 Please check the README file for all available parameters.
 
-{{- else if not .Values.logsToken -}}
+{{- else if and (not .Values.logsToken) (not .Values.existingSecret.hasLogsToken)  -}}
 
 Missing logsToken! You will only receive metrics and events.
 {{ if eq .Values.region "US" }}
@@ -38,7 +38,7 @@ After a few minutes check your app at https://apps.sematext.com/ui/monitoring
 After a few minutes check your app at https://apps.eu.sematext.com/ui/monitoring
 {{ end }}
 
-{{- else if not .Values.infraToken -}}
+{{- else if and (not .Values.infraToken) (not .Values.existingSecret.hasInfraToken) -}}
 
 Missing infraToken! You will only receive logs.
 {{ if eq .Values.region "US" }}
