@@ -20,7 +20,7 @@ rules:
   - list
   - get
   - watch
-{{- if .Values.infraToken }}
+{{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
 - apiGroups:
   - ""
   resources:
