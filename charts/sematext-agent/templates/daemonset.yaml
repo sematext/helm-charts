@@ -43,11 +43,13 @@ spec:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
                 key: infra-token
+          {{- if or (.Values.logsToken) (.Values.existingSecret.hasLogsToken) }}
           - name: LOGS_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
                 key: logs-token
+          {{- end }}
           - name: STA_NAMESPACE
             valueFrom:
               fieldRef:
