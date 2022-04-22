@@ -78,6 +78,11 @@ serviceAccount:
 infraToken: null
 # logs token to send logs
 logsToken: null
+# instead of providing them directly, provide an existing secret from which infra token and logs token will be read (mutually exclusive with infraToken and logsToken)
+existingSecret:
+  name: null
+  hasLogsToken: false
+  hasInfraToken: false
 
 # for private images
 # imagePullSecrets:

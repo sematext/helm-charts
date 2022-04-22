@@ -1,4 +1,4 @@
-{{- if or (.Values.infraToken) (.Values.logsToken) }}
+{{- if or (.Values.infraToken) (.Values.logsToken) (.Values.existingSecret.name) }}
 {{- if .Capabilities.APIVersions.Has "apps/v1" }}
 apiVersion: apps/v1
 {{- else }}
@@ -33,7 +33,7 @@ spec:
       priorityClassName: {{ .Values.priorityClassName | quote }}
       {{- end }}
       containers:
-        {{- if .Values.infraToken }}
+        {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
         - name: agent
           image: "{{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag }}"
           imagePullPolicy: {{ .Values.agent.image.pullPolicy }}
@@ -41,13 +41,15 @@ spec:
           - name: INFRA_TOKEN
             valueFrom:
               secretKeyRef:
-                name: {{ template "sematext-agent.fullname" . }}
+                name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
                 key: infra-token
+          {{- if or (.Values.logsToken) (.Values.existingSecret.hasLogsToken) }}
           - name: LOGS_TOKEN
             valueFrom:
               secretKeyRef:
-                name: {{ template "sematext-agent.fullname" . }}
+                name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
                 key: logs-token
+          {{- end }}
           - name: STA_NAMESPACE
             valueFrom:
               fieldRef:
@@ -101,7 +103,7 @@ spec:
           resources:
 {{ toYaml .Values.agent.resources | indent 12 }}
         {{- end }}
-        {{- if .Values.logsToken }}
+        {{- if or (.Values.logsToken) (.Values.existingSecret.hasLogsToken) }}
         - name: logagent
           image: "{{ .Values.logagent.image.repository }}:{{ .Values.logagent.image.tag }}"
           imagePullPolicy: {{ .Values.logagent.image.pullPolicy }}
@@ -109,7 +111,7 @@ spec:
           - name: LOGS_TOKEN
             valueFrom:
               secretKeyRef:
-                name: {{ template "sematext-agent.fullname" . }}
+                name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
                 key: logs-token
           envFrom:
           - configMapRef:
@@ -173,3 +175,4 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
 {{- end }}
+
