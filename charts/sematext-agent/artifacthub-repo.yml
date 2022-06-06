@@ -1,0 +1,6 @@
+# Artifact Hub repository metadata file
+
+# repositoryID: To be filled out once the repository is claimed
+owners:
+  - name: Sematext Group, Inc.
+    email: packages@sematext.com
