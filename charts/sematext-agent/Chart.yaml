@@ -12,6 +12,6 @@ keywords:
 home: https://sematext.com/cloud
 icon: https://cdn.sematext.com/octi-square-logo.png
 maintainers:
-  - name: Rishabh Shah
-    email: rishabh.shah@sematext.com
+  - name: Yago Gou 
+    email: yago.gou@sematext.com
 name: sematext-agent
