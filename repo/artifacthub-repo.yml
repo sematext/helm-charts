@@ -1,6 +1,6 @@
 # Artifact Hub repository metadata file
 
-# repositoryID: To be filled out once the repository is claimed
+repositoryID: ba461067-432f-4d4d-8b26-e863e1ddfd8c
 owners:
   - name: Sematext Group, Inc.
     email: packages@sematext.com
