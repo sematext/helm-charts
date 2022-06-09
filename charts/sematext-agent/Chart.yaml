@@ -1,6 +1,6 @@
 apiVersion: v1
 appVersion: "1.0"
-version: 1.0.45
+version: 1.0.46
 description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
 keywords:
   - sematext
@@ -12,6 +12,6 @@ keywords:
 home: https://sematext.com/cloud
 icon: https://cdn.sematext.com/octi-square-logo.png
 maintainers:
-  - name: Yago Gou 
-    email: yago.gou@sematext.com
+  - name: Sematext Group Inc.
+    email: packages@sematext.com
 name: sematext-agent

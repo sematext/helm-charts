@@ -16,8 +16,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: yago.gou@sematext.com
-      name: Yago Gou
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.45.tgz
@@ -37,8 +37,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: yago.gou@sematext.com
-      name: Yago Gou
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.44.tgz
@@ -58,8 +58,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.43.tgz
@@ -79,8 +79,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.42.tgz
@@ -100,8 +100,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.41.tgz
@@ -121,8 +121,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.40.tgz
@@ -142,8 +142,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.39.tgz
@@ -163,8 +163,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.38.tgz
@@ -184,8 +184,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.37.tgz
@@ -205,8 +205,8 @@ entries:
     - containers
     - ebpf
     maintainers:
-    - email: rishabh.shah@sematext.com
-      name: Rishabh Shah
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
     name: sematext-agent
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.36.tgz
