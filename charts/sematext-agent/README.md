@@ -70,7 +70,6 @@ The following table lists the configuration parameters of the `sematext-agent` c
 
 |             Parameter                  |            Description            |                  Default                  |
 |----------------------------------------|-----------------------------------|-------------------------------------------|
-| `logsToken`                            | Sematext Logs token               | `Nil` Provide your Logs token             |
 | `infraToken`                           | Sematext Infra token              | `Nil` Provide your Infra token            |
 | `existingSecret.name`                  | Secret with infra/logs tokens     | `Nil` Provide an existing secret          |
 | `existingSecret.hasLogsToken`          | Does secret contain logs token    | `false` Enable if secret has logsToken    |
@@ -82,19 +81,6 @@ The following table lists the configuration parameters of the `sematext-agent` c
 | `agent.service.port`                   | Service port                      | `80`                                      |
 | `agent.service.type`                   | Service type                      | `ClusterIP`                               |
 | `agent.resources`                      | Agent resources                   | `{}`                                      |
-| `logagent.image.repository`            | The image repository              | `sematext/logagent`                       |
-| `logagent.image.tag`                   | The image tag                     | `latest`                                  |
-| `logagent.image.pullPolicy`            | Image pull policy                 | `Always`                                  |
-| `logagent.config.LOG_GLOB`             | Set Glob for Containerd           | `Nil` Check `values.yaml`                |
-| `logagent.config.IGNORE_LOGS_PATTERN`  | Drops logs with a regex           | `Nil` Check `values.yaml`                |
-| `logagent.config.MATCH_BY_NAME`        | Include logs for container name   | `Nil` Check `values.yaml`                |
-| `logagent.config.MATCH_BY_IMAGE`       | Include logs for image name       | `Nil` Check `values.yaml`                |
-| `logagent.config.SKIP_BY_NAME`         | Exclude logs for container name   | `Nil` Check `values.yaml`                |
-| `logagent.config.SKIP_BY_IMAGE`        | Exclude logs for image name       | `Nil` Check `values.yaml`                |
-| `logagent.config.REMOVE_FIELDS`        | Remove fields from parsed logs    | `Nil` Check `values.yaml`                |
-| `logagent.resources`                   | Logagent resources                | `{}`                                      |
-| `logagent.customConfigs`               | Logagent custom configs           | `[]` Check `values.yaml`                  |
-| `logagent.extraHostVolumeMounts`       | Extra mounts                      | `{}`                                      |
 | `serviceAccount.create`                | Create a service account          | `true`                                    |
 | `serviceAccount.name`                  | Service account name              | `Nil` Defaults to chart name              |
 | `priorityClassName`                    | Priority class name               | `Nil`                                     |
