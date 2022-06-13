@@ -13,17 +13,7 @@ This chart installs the Sematext Agent to all nodes in your cluster via a `Daemo
 
 ## Installation
 
-To install the chart to ship logs run the following command:
-
-```bash
-$ helm repo add sematext https://cdn.sematext.com/helm-charts/
-$ helm install st-logagent  \
-    --set logsToken=YOUR_LOGS_TOKEN \
-    --set region=US \
-    sematext/sematext-agent
-```
-
-To install the chart for monitoring run the following command:
+To install the chart for monitoring and shipping logs run the following command:
 
 ```bash
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
@@ -44,24 +34,22 @@ $ helm install st-agent \
     sematext/sematext-agent
 ```
 
-To provide logs and infra tokens as a kubernetes secret instead, create a secret with `infra-token` and `logs-token` keys, and provide its name to the install command:
+To provide your infra token as a kubernetes secret instead, create a secret with `infra-token` as a key, and provide its name to the install command:
 
 ```bash
 $ kubectl create secret generic sematext-secret \
     --from-literal=infra-token=YOUR_INFRA_TOKEN \
-    --from-literal=logs-token=YOUR_LOGS_TOKEN
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set existingSecret.name=sematext-secret \
     --set existingSecret.hasInfraToken=true \
-    --set existingSecret.hasLogsToken=true \
     --set region=US \
     sematext/sematext-agent
 ```
 
 
 
-After a few minutes, you should see logs, metrics, and events reported in Sematext web UI.
+After a few minutes, you should see your services appear in the [Discovery page in Sematext Cloud](https://apps.sematext.com/ui/discovery/services), where you can enable the collection of metrics, events and logs.
 
 **NOTE:** If you want to use Sematext hosted in the EU region set the region parameter to `--set region=EU`. Also, it is worth mentioning that the agent is running as a privileged container.
 
@@ -69,11 +57,6 @@ After a few minutes, you should see logs, metrics, and events reported in Semate
 
 To uninstall the chart use:
 
-```bash
-$ helm uninstall st-logagent
-```
-
-or
 
 ```bash
 $ helm uninstall st-agent
@@ -87,7 +70,6 @@ The following table lists the configuration parameters of the `sematext-agent` c
 
 |             Parameter                  |            Description            |                  Default                  |
 |----------------------------------------|-----------------------------------|-------------------------------------------|
-| `logsToken`                            | Sematext Logs token               | `Nil` Provide your Logs token             |
 | `infraToken`                           | Sematext Infra token              | `Nil` Provide your Infra token            |
 | `existingSecret.name`                  | Secret with infra/logs tokens     | `Nil` Provide an existing secret          |
 | `existingSecret.hasLogsToken`          | Does secret contain logs token    | `false` Enable if secret has logsToken    |
@@ -99,19 +81,6 @@ The following table lists the configuration parameters of the `sematext-agent` c
 | `agent.service.port`                   | Service port                      | `80`                                      |
 | `agent.service.type`                   | Service type                      | `ClusterIP`                               |
 | `agent.resources`                      | Agent resources                   | `{}`                                      |
-| `logagent.image.repository`            | The image repository              | `sematext/logagent`                       |
-| `logagent.image.tag`                   | The image tag                     | `latest`                                  |
-| `logagent.image.pullPolicy`            | Image pull policy                 | `Always`                                  |
-| `logagent.config.LOG_GLOB`             | Set Glob for Containerd           | `Nil` Check `values.yaml`                |
-| `logagent.config.IGNORE_LOGS_PATTERN`  | Drops logs with a regex           | `Nil` Check `values.yaml`                |
-| `logagent.config.MATCH_BY_NAME`        | Include logs for container name   | `Nil` Check `values.yaml`                |
-| `logagent.config.MATCH_BY_IMAGE`       | Include logs for image name       | `Nil` Check `values.yaml`                |
-| `logagent.config.SKIP_BY_NAME`         | Exclude logs for container name   | `Nil` Check `values.yaml`                |
-| `logagent.config.SKIP_BY_IMAGE`        | Exclude logs for image name       | `Nil` Check `values.yaml`                |
-| `logagent.config.REMOVE_FIELDS`        | Remove fields from parsed logs    | `Nil` Check `values.yaml`                |
-| `logagent.resources`                   | Logagent resources                | `{}`                                      |
-| `logagent.customConfigs`               | Logagent custom configs           | `[]` Check `values.yaml`                  |
-| `logagent.extraHostVolumeMounts`       | Extra mounts                      | `{}`                                      |
 | `serviceAccount.create`                | Create a service account          | `true`                                    |
 | `serviceAccount.name`                  | Service account name              | `Nil` Defaults to chart name              |
 | `priorityClassName`                    | Priority class name               | `Nil`                                     |
@@ -130,7 +99,7 @@ $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
-    --set agent.image.tag=0.18.3 \
+    --set agent.image.tag=1.16.11 \
     --set agent.image.pullPolicy=IfNotPresent \
     sematext/sematext-agent
 ```
