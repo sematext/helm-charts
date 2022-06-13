@@ -13,17 +13,7 @@ This chart installs the Sematext Agent to all nodes in your cluster via a `Daemo
 
 ## Installation
 
-To install the chart to ship logs run the following command:
-
-```bash
-$ helm repo add sematext https://cdn.sematext.com/helm-charts/
-$ helm install st-logagent  \
-    --set logsToken=YOUR_LOGS_TOKEN \
-    --set region=US \
-    sematext/sematext-agent
-```
-
-To install the chart for monitoring run the following command:
+To install the chart for monitoring and shipping logs run the following command:
 
 ```bash
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
@@ -44,24 +34,22 @@ $ helm install st-agent \
     sematext/sematext-agent
 ```
 
-To provide logs and infra tokens as a kubernetes secret instead, create a secret with `infra-token` and `logs-token` keys, and provide its name to the install command:
+To provide your infra token as a kubernetes secret instead, create a secret with `infra-token` as a key, and provide its name to the install command:
 
 ```bash
 $ kubectl create secret generic sematext-secret \
     --from-literal=infra-token=YOUR_INFRA_TOKEN \
-    --from-literal=logs-token=YOUR_LOGS_TOKEN
 $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set existingSecret.name=sematext-secret \
     --set existingSecret.hasInfraToken=true \
-    --set existingSecret.hasLogsToken=true \
     --set region=US \
     sematext/sematext-agent
 ```
 
 
 
-After a few minutes, you should see logs, metrics, and events reported in Sematext web UI.
+After a few minutes, you should see your services appear in the [Discovery page in Sematext Cloud](https://apps.sematext.com/ui/discovery/services), where you can enable the collection of metrics, events and logs.
 
 **NOTE:** If you want to use Sematext hosted in the EU region set the region parameter to `--set region=EU`. Also, it is worth mentioning that the agent is running as a privileged container.
 
@@ -69,11 +57,6 @@ After a few minutes, you should see logs, metrics, and events reported in Semate
 
 To uninstall the chart use:
 
-```bash
-$ helm uninstall st-logagent
-```
-
-or
 
 ```bash
 $ helm uninstall st-agent
@@ -130,7 +113,7 @@ $ helm repo add sematext https://cdn.sematext.com/helm-charts/
 $ helm install st-agent \
     --set infraToken=YOUR_INFRA_TOKEN \
     --set region=US \
-    --set agent.image.tag=0.18.3 \
+    --set agent.image.tag=1.16.11 \
     --set agent.image.pullPolicy=IfNotPresent \
     sematext/sematext-agent
 ```
