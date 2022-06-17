@@ -7,7 +7,7 @@ This chart installs the Sematext Agent to all nodes in your cluster via a `Daemo
 ## Prerequisites
 
 - Kubernetes 1.13+
-- You need to create [an Infra App in Sematext Cloud](https://apps.sematext.com/ui/monitoring-create/app/infra) to get your infra token.
+- You need to create an Infra App in [Sematext Cloud US](https://apps.sematext.com/ui/monitoring-create/app/infra) or [Sematext Cloud EU](https://apps.eu.sematext.com/ui/monitoring-create/app/infra) to get your Infra App Token.
 
 ## Installation
 
@@ -33,4 +33,4 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ## Docs
 
-For more detailed information, refer to our [official documentation](https://sematext.com/docs/agents/sematext-agent/kubernetes/helm/).
+For more detailed information, refer to our official [Helm chart documentation](https://sematext.com/docs/agents/sematext-agent/kubernetes/helm/).
