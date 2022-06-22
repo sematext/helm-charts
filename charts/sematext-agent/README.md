@@ -1,6 +1,6 @@
 # Sematext Agent
 
-Sematext Agent collects logs, metrics, events and more info for hosts (CPU, memory, disk, network, processes, ...), containers and orchestrator platforms and ships that to [Sematext Cloud](https://sematext.com/cloud). Sematext Cloud is available in the US and EU regions.
+Sematext Agent collects logs, metrics, events and more info for hosts (CPU, memory, disk, network, processes, ...), containers (Docker, containerd, cri-o, Podman and rkt) and orchestrator platforms and ships that to [Sematext Cloud](https://sematext.com/cloud). Sematext Cloud is available in the US and EU regions.
 
 This chart installs the Sematext Agent to all nodes in your cluster via a `DaemonSet` resource.
 
