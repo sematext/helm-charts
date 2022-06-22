@@ -16,7 +16,7 @@ To install it, run the following command:
 ```sh
 helm install --name sematext-agent \
   --set infraToken=<YOUR_INFRA_TOKEN> \
-  --set region=<"US" or "EU"> \
+  --set region=<US or EU> \
   stable/sematext-agent
 ```
 
