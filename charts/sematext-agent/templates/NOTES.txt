@@ -31,7 +31,6 @@ Please check the README file for all available parameters.
 
 {{- else if and (not .Values.logsToken) (not .Values.existingSecret.hasLogsToken)  -}}
 
-Missing logsToken! You will only receive metrics and events.
 {{ if eq .Values.region "US" }}
 After a few minutes check your app at https://apps.sematext.com/ui/monitoring
 {{ else if eq .Values.region "EU" }}
