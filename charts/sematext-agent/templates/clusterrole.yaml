@@ -20,6 +20,14 @@ rules:
   - list
   - get
   - watch
+- apiGroups:
+  - "scheduling.k8s.io/v1"
+  resources:
+  - priorityclasses
+  verbs:
+  - list
+  - get
+  - watch
 {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
 - apiGroups:
   - ""

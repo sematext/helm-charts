@@ -41,8 +41,10 @@ After a few minutes check your app at https://apps.eu.sematext.com/ui/monitoring
 
 Missing infraToken! You will only receive logs.
 {{ if eq .Values.region "US" }}
+Agents deployed in { } namespace
 After a few minutes check your app at https://apps.sematext.com/ui/logs
 {{ else if eq .Values.region "EU" }}
+Agents deployed in { } namespace
 After a few minutes check your app at https://apps.eu.sematext.com/ui/logs
 {{ end }}
 
