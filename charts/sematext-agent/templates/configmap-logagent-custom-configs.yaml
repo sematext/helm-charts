@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ template "sematext-agent.fullname" . }}-logagent-custom-configs
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ template "sematext-agent.name" . }}-logagent
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}

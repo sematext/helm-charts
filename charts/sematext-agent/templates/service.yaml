@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ template "sematext-agent.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: {{ template "sematext-agent.name" . }}
     chart: {{ template "sematext-agent.chart" . }}

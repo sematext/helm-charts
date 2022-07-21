@@ -7,6 +7,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: {{ template "sematext-agent.fullname" . }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ template "sematext-agent.name" . }}
     chart: {{ template "sematext-agent.chart" . }}

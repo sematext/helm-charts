@@ -35,6 +35,7 @@ rules:
   - configmaps
   - nodes
   - secrets
+  - namespaces
   verbs:
   - list
   - get
