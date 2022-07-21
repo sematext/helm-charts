@@ -34,7 +34,7 @@ helm install st-agent \
 Please check the README file for all available parameters.
 
 {{- else if and (not .Values.logsToken) (not .Values.existingSecret.hasLogsToken)  -}}
-
+Agent deployed in {{ .Release.Namespace }} namespace
 {{ if eq .Values.region "US" }}
 After a few minutes check your app at https://apps.sematext.com/ui/monitoring
 {{ else if eq .Values.region "EU" }}
@@ -43,18 +43,17 @@ After a few minutes check your app at https://apps.eu.sematext.com/ui/monitoring
 
 {{- else if and (not .Values.infraToken) (not .Values.existingSecret.hasInfraToken) -}}
 
-Missing infraToken! You will only receive logs.
+Missing infraToken! Please add token in order to ship metrics to Sematext
 {{ if eq .Values.region "US" }}
-Agents deployed in { } namespace
 After a few minutes check your app at https://apps.sematext.com/ui/logs
 {{ else if eq .Values.region "EU" }}
-Agents deployed in { } namespace
 After a few minutes check your app at https://apps.eu.sematext.com/ui/logs
 {{ end }}
 
 {{- else -}}
 
 You are all set!
+Agent deployed in {{ .Release.Namespace }} namespace
 {{ if eq .Values.region "US" }}
 After a few minutes check your metrics app at https://apps.sematext.com/ui/monitoring
 or logs at https://apps.sematext.com/ui/logs
