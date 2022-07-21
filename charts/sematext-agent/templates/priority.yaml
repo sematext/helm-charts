@@ -3,6 +3,11 @@ apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
   name: {{ .Values.priorityClass.name }}
+  labels:
+    app: {{ template "sematext-agent.name" . }}
+    chart: {{ template "sematext-agent.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 value: {{ .Values.priorityClass.value }}
 preemptionPolicy: PreemptLowerPriority
 globalDefault: false

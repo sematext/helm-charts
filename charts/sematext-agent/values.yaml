@@ -91,8 +91,6 @@ existingSecret:
 
 region: US
 
-namespace: "default"
-
 # support for custom URLs
 serverBaseUrl: null
 eventsReceiverUrl: null
