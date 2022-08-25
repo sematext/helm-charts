@@ -61,7 +61,9 @@ logagent:
   #    hostPath: <hostPath>
   #    mountPath: <mountPath>
 
-priorityClassName:
+priorityClass:
+  name: "sematext-priority"
+  value: 1
 
 rbac:
   # Specifies whether RBAC resources should be created

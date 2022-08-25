@@ -16,7 +16,9 @@ To install it, run the following command:
 ```sh
 helm install --name sematext-agent \
   --set infraToken=<YOUR_INFRA_TOKEN> \
-  --set region=<US or EU> \
+  --set region=<US or EU> \ 
+  --namespace=sematext \ 
+  --create-namespace
   stable/sematext-agent
 ```
 
@@ -26,7 +28,7 @@ To uninstall the chart use:
 
 
 ```bash
-$ helm uninstall st-agent
+$ helm uninstall st-agent --namespace=sematext
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
