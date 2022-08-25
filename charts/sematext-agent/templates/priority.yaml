@@ -13,3 +13,4 @@ preemptionPolicy: PreemptLowerPriority
 globalDefault: false
 description: "Sematext priority: used for Sematext Agent and Vector logshipper"
 {{- end }}
+

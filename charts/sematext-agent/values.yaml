@@ -63,7 +63,7 @@ logagent:
 
 priorityClass:
   name: "sematext-priority"
-  value: 10000
+  value: 1
 
 rbac:
   # Specifies whether RBAC resources should be created
