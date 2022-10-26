@@ -80,6 +80,8 @@ serviceAccount:
 infraToken: null
 # logs token to send logs
 logsToken: null
+# clusterName represents the name of the cluster
+clusterName: "<REPLACE_WITH_CLUSTER_NAME>"
 # instead of providing them directly, provide an existing secret from which infra token and logs token will be read (mutually exclusive with infraToken and logsToken)
 existingSecret:
   name: null

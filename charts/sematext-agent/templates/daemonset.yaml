@@ -38,6 +38,8 @@ spec:
           image: "{{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag }}"
           imagePullPolicy: {{ .Values.agent.image.pullPolicy }}
           env:
+          - name: KUBERNETES_CLUSTER_ID
+            value: {{ .Values.clusterName }}
           - name: INFRA_TOKEN
             valueFrom:
               secretKeyRef:
