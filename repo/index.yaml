@@ -30,6 +30,27 @@ entries:
     home: https://sematext.com/cloud
     icon: https://cdn.sematext.com/octi-square-logo.png
     keywords:
+      - sematext
+      - observability
+      - monitoring
+      - logging
+      - containers
+      - ebpf
+    maintainers:
+      - email: packages@sematext.com
+        name: Sematext Group Inc.
+    name: sematext-agent
+    urls:
+      - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.48.tgz
+    version: 1.0.48
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-08-31T13:15:21.021092820+02:00"
+    description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
+    digest: b5c48a39eea85caa57059b810fd42937f41a7f2e31fa01c87c06781fcec1692e
+    home: https://sematext.com/cloud
+    icon: https://cdn.sematext.com/octi-square-logo.png
+    keywords:
     - sematext
     - observability
     - monitoring
