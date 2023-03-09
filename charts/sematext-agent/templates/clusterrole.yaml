@@ -62,6 +62,8 @@ rules:
   resources:
   - deployments
   - replicasets
+  - statefulsets
+  - daemonsets
   verbs:
   - watch
   - list
@@ -71,7 +73,6 @@ rules:
   resources:
   - daemonsets
   verbs:
-  - get
   - create
   - delete
 - apiGroups:
