@@ -29,6 +29,10 @@ rules:
   - get
   - watch
 {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
+- nonResourceURLs:
+  - /metrics
+  verbs:
+  - get
 - apiGroups:
   - ""
   resources:
