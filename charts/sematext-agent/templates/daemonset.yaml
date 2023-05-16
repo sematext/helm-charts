@@ -32,6 +32,7 @@ spec:
       {{- if .Values.priorityClass }}
       priorityClassName: {{ .Values.priorityClass.name | quote }}
       {{- end }}
+      hostNetwork: true
       containers:
         {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
         - name: agent
