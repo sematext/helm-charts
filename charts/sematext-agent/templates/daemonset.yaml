@@ -32,8 +32,10 @@ spec:
       {{- if .Values.priorityClass }}
       priorityClassName: {{ .Values.priorityClass.name | quote }}
       {{- end }}
+      {{- if .Values.hostNetwork }}
       hostNetwork: true
       dnsPolicy: "ClusterFirstWithHostNet"
+      {{- end }}
       containers:
         {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
         - name: agent
