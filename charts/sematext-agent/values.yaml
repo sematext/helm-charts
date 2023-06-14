@@ -4,7 +4,7 @@ agent:
     tag: latest
     pullPolicy: Always
   service:
-    port: 80
+    port: 8675
     type: ClusterIP
   config:
     PIPELINE_CONSOLE_OUTPUT: false
