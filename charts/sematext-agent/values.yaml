@@ -4,6 +4,9 @@ agent:
     tag: latest
     pullPolicy: Always
   service:
+    # If you enable `hostNetwork` and the default port (8675) is already in use on your host,
+    # you may encounter a `Pending` status for the Sematext Agent pods.
+    # In such a scenario, please modify the port to resolve the issue.
     port: 8675
     type: ClusterIP
   config:
