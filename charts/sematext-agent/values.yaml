@@ -4,7 +4,10 @@ agent:
     tag: latest
     pullPolicy: Always
   service:
-    port: 80
+    # If you enable `hostNetwork` and the default port (8675) is already in use on your host,
+    # you may encounter a `Pending` status for the Sematext Agent pods.
+    # In such a scenario, please modify the port to resolve the issue.
+    port: 8675
     type: ClusterIP
   config:
     PIPELINE_CONSOLE_OUTPUT: false
@@ -104,3 +107,9 @@ tolerations: []
 # Node labels for pod assignment
 # Ref: https://kubernetes.io/docs/user-guide/node-selection/
 nodeSelector: {}
+
+# Use the same network configuration as the host. It's required for discovering the control plane ports.
+# If it is not feasible to run pods with hostNetwork, please set it to `false`.
+# However, please be mindful that the Sematext Agent will be unable to identify the control plane ports without this configuration.
+# You will need to explicitly define the ports.
+hostNetwork: true
