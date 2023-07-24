@@ -3,7 +3,28 @@ entries:
   sematext-agent:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.169689518+02:00"
+    created: "2023-07-24T14:36:13.629898469+03:00"
+    description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
+    digest: 30c241624c5d3ab2401e8aa9419339b89fbdeeba64112b97a5565b97cbcc79ed
+    home: https://sematext.com/cloud
+    icon: https://cdn.sematext.com/octi-square-logo.png
+    keywords:
+    - sematext
+    - observability
+    - monitoring
+    - logging
+    - containers
+    - ebpf
+    maintainers:
+    - email: packages@sematext.com
+      name: Sematext Group Inc.
+    name: sematext-agent
+    urls:
+    - https://cdn.sematext.com/helm-charts/sematext-agent-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-07-24T14:36:13.629419492+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 1fd802d1d33146eba8c6eb5f416b4b4005b81fc176b90e5fd056e0bf756d212a
     home: https://sematext.com/cloud
@@ -24,7 +45,7 @@ entries:
     version: 1.1.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.168818186+02:00"
+    created: "2023-07-24T14:36:13.628967404+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 6587709580945fa21c3b9f1383fc1c537a3cebaf3e067c9d52bc7b5e8ed88779
     home: https://sematext.com/cloud
@@ -45,7 +66,7 @@ entries:
     version: 1.0.48
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.168006034+02:00"
+    created: "2023-07-24T14:36:13.626861664+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 02d82014105cb0bcf7cea0cdde82b03f46a411b207b8bc04d5f574fe9ab869a8
     home: https://sematext.com/cloud
@@ -66,7 +87,7 @@ entries:
     version: 1.0.46
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.161811745+02:00"
+    created: "2023-07-24T14:36:13.620408183+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 02d82014105cb0bcf7cea0cdde82b03f46a411b207b8bc04d5f574fe9ab869a8
     home: https://sematext.com/cloud
@@ -87,7 +108,7 @@ entries:
     version: 1.0.46
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.154575492+02:00"
+    created: "2023-07-24T14:36:13.613129658+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 1b6b6f220b6c74ef0af7c3035cd3cc14bc1cc35f57537c631a2f17af9f029b90
     home: https://sematext.com/cloud
@@ -108,7 +129,7 @@ entries:
     version: 1.0.45
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.153821693+02:00"
+    created: "2023-07-24T14:36:13.612643277+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 16d7c3d6eb96eaf3baa3802b6ed7d1d997d83b9873b480fd8713137deb86d381
     home: https://sematext.com/cloud
@@ -129,7 +150,7 @@ entries:
     version: 1.0.44
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.153016226+02:00"
+    created: "2023-07-24T14:36:13.612156198+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: b18206922156ea7aeb9df18905651cc88d3a755dbfb60311d6f5117918a11971
     home: https://sematext.com/cloud
@@ -150,7 +171,7 @@ entries:
     version: 1.0.43
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.152127924+02:00"
+    created: "2023-07-24T14:36:13.611689304+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 37daefc1a13c1c4b49f7b2c4669fad84203accc2b0f5538077ec85f847f6fda8
     home: https://sematext.com/cloud
@@ -171,7 +192,7 @@ entries:
     version: 1.0.42
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.151297345+02:00"
+    created: "2023-07-24T14:36:13.611242314+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: a430b5eb6c6d0136da28f768c5d9d284889535c5649a206f4062a4b858ecc63d
     home: https://sematext.com/cloud
@@ -192,7 +213,7 @@ entries:
     version: 1.0.41
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.149531492+02:00"
+    created: "2023-07-24T14:36:13.610798258+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 9d38b452f5d8fd99de4beae3e348c0971ff751183db5f8d5bfe2bb4577e9eeab
     home: https://sematext.com/cloud
@@ -213,7 +234,7 @@ entries:
     version: 1.0.40
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.148683097+02:00"
+    created: "2023-07-24T14:36:13.610337999+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 886f4e264247d0a0027c4a45c55536b7691af66b675a5df5f479fb580d4b85dd
     home: https://sematext.com/cloud
@@ -234,7 +255,7 @@ entries:
     version: 1.0.39
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.147886846+02:00"
+    created: "2023-07-24T14:36:13.60988193+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: d56d1ba7c2aef58db907c3b0086ea3715e0d2822da522cfab043572647bc7cb5
     home: https://sematext.com/cloud
@@ -255,7 +276,7 @@ entries:
     version: 1.0.38
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.147099634+02:00"
+    created: "2023-07-24T14:36:13.609406584+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 15fe5208bd9feec240209bff2e93f232ae1ef25b6734ab3e39b05a49e7e95baf
     home: https://sematext.com/cloud
@@ -276,7 +297,7 @@ entries:
     version: 1.0.37
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.146295258+02:00"
+    created: "2023-07-24T14:36:13.60884673+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 70db74c80335577d3d9a16f18f4cc44d770670e1a69962339a510bbdd01e347f
     home: https://sematext.com/cloud
@@ -297,7 +318,7 @@ entries:
     version: 1.0.36
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.1454888+02:00"
+    created: "2023-07-24T14:36:13.608283174+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 976d2c4263153d39cb412102ffe2cefebbee0d46bf421f9d1ab64ed62dda2f5a
     home: https://sematext.com/cloud
@@ -318,7 +339,7 @@ entries:
     version: 1.0.35
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.144785828+02:00"
+    created: "2023-07-24T14:36:13.607733726+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 78ae14a76aae1c80e19ceafd3980db7c7c4c4da7053050671b7ea5ef25ac0e8c
     home: https://sematext.com/cloud
@@ -339,7 +360,7 @@ entries:
     version: 1.0.34
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.144062976+02:00"
+    created: "2023-07-24T14:36:13.607168983+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: a3066c2ed1a1ee8519949bfd90c4e8c7c6ff4a90874590bc4df3465a9adaaff7
     home: https://sematext.com/cloud
@@ -360,7 +381,7 @@ entries:
     version: 1.0.33
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.143368688+02:00"
+    created: "2023-07-24T14:36:13.606637135+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 19370a0296d8e5e562d173538ea6804fe80afb32e5087770e29b0582063b397c
     home: https://sematext.com/cloud
@@ -381,7 +402,7 @@ entries:
     version: 1.0.32
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-03-30T14:24:53.14266924+02:00"
+    created: "2023-07-24T14:36:13.606087198+03:00"
     description: Helm chart for deploying Sematext Agent and Logagent to Kubernetes
     digest: 5f4c89f5289b38ea686ccf3fd003678c74124776eec0803c11fb8d3b116f7dec
     home: https://sematext.com/cloud
@@ -400,4 +421,4 @@ entries:
     urls:
     - https://cdn.sematext.com/helm-charts/sematext-agent-1.0.29.tgz
     version: 1.0.29
-generated: "2023-03-30T14:24:53.141751054+02:00"
+generated: "2023-07-24T14:36:13.59773059+03:00"
