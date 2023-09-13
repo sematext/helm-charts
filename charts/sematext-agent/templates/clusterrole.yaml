@@ -28,6 +28,13 @@ rules:
   - list
   - get
   - watch
+- apiGroups:
+    - batch
+  resources:
+    - cronjobs
+    - jobs
+  verbs:
+    - list
 {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
 - nonResourceURLs:
   - /metrics
