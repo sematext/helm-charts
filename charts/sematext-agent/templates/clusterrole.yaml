@@ -94,5 +94,15 @@ rules:
   - get
   - watch
   - list
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - watch
+  - list
+  - create
+  - update
 {{- end }}
 {{- end }}
