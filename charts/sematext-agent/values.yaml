@@ -1,7 +1,7 @@
 agent:
   image:
     repository: sematext/agent
-    tag: latest
+    tag: latest-3
     pullPolicy: Always
   service:
     # If you enable `hostNetwork` and the default port (8675) is already in use on your host,
