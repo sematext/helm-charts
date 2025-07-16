@@ -121,3 +121,48 @@ nodeSelector: {}
 # However, please be mindful that the Sematext Agent will be unable to identify the control plane ports without this configuration.
 # You will need to explicitly define the ports.
 hostNetwork: true
+
+# OpenTelemetry configuration
+otel:
+  enabled: false
+  metrics:
+    enabled: true
+    receiver:
+      grpc:
+        enabled: true
+        port: 4317
+        endpoint: "0.0.0.0:4317"
+      http:
+        enabled: true
+        port: 4318
+        endpoint: "0.0.0.0:4318"
+  logs:
+    enabled: true
+    receiver:
+      grpc:
+        enabled: true
+        port: 4327
+        endpoint: "0.0.0.0:4327"
+      http:
+        enabled: true
+        port: 4328
+        endpoint: "0.0.0.0:4328"
+  traces:
+    enabled: false
+    receiver:
+      grpc:
+        enabled: true
+        port: 4337
+        endpoint: "0.0.0.0:4337"
+      http:
+        enabled: true
+        port: 4338
+        endpoint: "0.0.0.0:4338"
+  # Application-specific OTel tokens
+  # Example:
+  # apps:
+  #   my-app:
+  #     monitoring-token: "your-monitor-token"
+  #     logs-token: "your-logs-token"
+  #     traces-token: "your-traces-token"
+  apps: {}

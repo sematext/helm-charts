@@ -25,3 +25,41 @@ data:
   {{- if .Values.commandServerUrl }}
   COMMAND_SERVER_URL: {{ default "" .Values.commandServerUrl | quote }}
   {{- end }}
+  {{- if .Values.otel.enabled }}
+  OTEL_ENABLED: "true"
+  {{- if .Values.otel.metrics.enabled }}
+  OTEL_METRICS_ENABLED: "true"
+  {{- if .Values.otel.metrics.receiver.grpc.enabled }}
+  OTEL_METRICS_RECEIVER_GRPC_ENDPOINT: {{ .Values.otel.metrics.receiver.grpc.endpoint | quote }}
+  {{- end }}
+  {{- if .Values.otel.metrics.receiver.http.enabled }}
+  OTEL_METRICS_RECEIVER_HTTP_ENDPOINT: {{ .Values.otel.metrics.receiver.http.endpoint | quote }}
+  {{- end }}
+  {{- else }}
+  OTEL_METRICS_ENABLED: "false"
+  {{- end }}
+  {{- if .Values.otel.logs.enabled }}
+  OTEL_LOGS_ENABLED: "true"
+  {{- if .Values.otel.logs.receiver.grpc.enabled }}
+  OTEL_LOGS_RECEIVER_GRPC_ENDPOINT: {{ .Values.otel.logs.receiver.grpc.endpoint | quote }}
+  {{- end }}
+  {{- if .Values.otel.logs.receiver.http.enabled }}
+  OTEL_LOGS_RECEIVER_HTTP_ENDPOINT: {{ .Values.otel.logs.receiver.http.endpoint | quote }}
+  {{- end }}
+  {{- else }}
+  OTEL_LOGS_ENABLED: "false"
+  {{- end }}
+  {{- if .Values.otel.traces.enabled }}
+  OTEL_TRACES_ENABLED: "true"
+  {{- if .Values.otel.traces.receiver.grpc.enabled }}
+  OTEL_TRACES_RECEIVER_GRPC_ENDPOINT: {{ .Values.otel.traces.receiver.grpc.endpoint | quote }}
+  {{- end }}
+  {{- if .Values.otel.traces.receiver.http.enabled }}
+  OTEL_TRACES_RECEIVER_HTTP_ENDPOINT: {{ .Values.otel.traces.receiver.http.endpoint | quote }}
+  {{- end }}
+  {{- else }}
+  OTEL_TRACES_ENABLED: "false"
+  {{- end }}
+  {{- else }}
+  OTEL_ENABLED: "false"
+  {{- end }}
