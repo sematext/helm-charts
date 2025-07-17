@@ -129,28 +129,22 @@ otel:
     enabled: true
     receiver:
       grpc:
-        port: 4317
         endpoint: "0.0.0.0:4317"
       http:
-        port: 4318
         endpoint: "0.0.0.0:4318"
   logs:
     enabled: true
     receiver:
       grpc:
-        port: 4327
         endpoint: "0.0.0.0:4327"
       http:
-        port: 4328
         endpoint: "0.0.0.0:4328"
   traces:
     enabled: false
     receiver:
       grpc:
-        port: 4337
         endpoint: "0.0.0.0:4337"
       http:
-        port: 4338
         endpoint: "0.0.0.0:4338"
   # Application-specific OTel tokens
   # Example:

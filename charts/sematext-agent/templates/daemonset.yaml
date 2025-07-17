@@ -70,21 +70,21 @@ spec:
                 fieldPath: metadata.namespace
           {{- if .Values.otel.enabled }}
           {{- range $appName, $appConfig := .Values.otel.apps }}
-          {{- if $appConfig.monitoring-token }}
+          {{- if index $appConfig "monitoring-token" }}
           - name: OTEL_APPS_{{ upper $appName | replace "-" "_" }}_MONITORING_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" $) $.Values.existingSecret.name }}
                 key: otel-{{ $appName }}-monitoring-token
           {{- end }}
-          {{- if $appConfig.logs-token }}
+          {{- if index $appConfig "logs-token" }}
           - name: OTEL_APPS_{{ upper $appName | replace "-" "_" }}_LOGS_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" $) $.Values.existingSecret.name }}
                 key: otel-{{ $appName }}-logs-token
           {{- end }}
-          {{- if $appConfig.traces-token }}
+          {{- if index $appConfig "traces-token" }}
           - name: OTEL_APPS_{{ upper $appName | replace "-" "_" }}_TRACES_TOKEN
             valueFrom:
               secretKeyRef:
