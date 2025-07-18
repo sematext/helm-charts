@@ -99,6 +99,7 @@ region: US
 serverBaseUrl: null
 eventsReceiverUrl: null
 logsReceiverUrl: null
+tracesReceiverUrl: null
 commandServerUrl: null
 
 # Tolerations allow the agent pods to be scheduled on specific nodes with taints.
@@ -129,23 +130,29 @@ otel:
     enabled: true
     receiver:
       grpc:
-        endpoint: "0.0.0.0:4317"
+        host: "0.0.0.0"
+        port: 4317
       http:
-        endpoint: "0.0.0.0:4318"
+        host: "0.0.0.0"
+        port: 4318
   logs:
     enabled: true
     receiver:
       grpc:
-        endpoint: "0.0.0.0:4327"
+        host: "0.0.0.0"
+        port: 4327
       http:
-        endpoint: "0.0.0.0:4328"
+        host: "0.0.0.0"
+        port: 4328
   traces:
     enabled: false
     receiver:
       grpc:
-        endpoint: "0.0.0.0:4337"
+        host: "0.0.0.0"
+        port: 4337
       http:
-        endpoint: "0.0.0.0:4338"
+        host: "0.0.0.0"
+        port: 4338
   # Application-specific OTel tokens
   # Example:
   # apps:

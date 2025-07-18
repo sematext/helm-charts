@@ -21,6 +21,9 @@ data:
   {{- if .Values.logsReceiverUrl }}
   LOGS_RECEIVER_URL: {{ default "" .Values.logsReceiverUrl | quote }}
   {{- end }}
+  {{- if .Values.tracesReceiverUrl }}
+  TRACES_RECEIVER_URL: {{ default "" .Values.tracesReceiverUrl | quote }}
+  {{- end }}
   API_SERVER_PORT: "{{ .Values.agent.service.port }}"
   {{- if .Values.commandServerUrl }}
   COMMAND_SERVER_URL: {{ default "" .Values.commandServerUrl | quote }}
@@ -29,22 +32,22 @@ data:
   OTEL_ENABLED: "true"
   {{- if .Values.otel.metrics.enabled }}
   OTEL_METRICS_ENABLED: "true"
-  OTEL_METRICS_RECEIVER_GRPC_ENDPOINT: {{ .Values.otel.metrics.receiver.grpc.endpoint | quote }}
-  OTEL_METRICS_RECEIVER_HTTP_ENDPOINT: {{ .Values.otel.metrics.receiver.http.endpoint | quote }}
+  OTEL_METRICS_RECEIVER_GRPC_ENDPOINT: {{ printf "%s:%v" .Values.otel.metrics.receiver.grpc.host .Values.otel.metrics.receiver.grpc.port | quote }}
+  OTEL_METRICS_RECEIVER_HTTP_ENDPOINT: {{ printf "%s:%v" .Values.otel.metrics.receiver.http.host .Values.otel.metrics.receiver.http.port | quote }}
   {{- else }}
   OTEL_METRICS_ENABLED: "false"
   {{- end }}
   {{- if .Values.otel.logs.enabled }}
   OTEL_LOGS_ENABLED: "true"
-  OTEL_LOGS_RECEIVER_GRPC_ENDPOINT: {{ .Values.otel.logs.receiver.grpc.endpoint | quote }}
-  OTEL_LOGS_RECEIVER_HTTP_ENDPOINT: {{ .Values.otel.logs.receiver.http.endpoint | quote }}
+  OTEL_LOGS_RECEIVER_GRPC_ENDPOINT: {{ printf "%s:%v" .Values.otel.logs.receiver.grpc.host .Values.otel.logs.receiver.grpc.port | quote }}
+  OTEL_LOGS_RECEIVER_HTTP_ENDPOINT: {{ printf "%s:%v" .Values.otel.logs.receiver.http.host .Values.otel.logs.receiver.http.port | quote }}
   {{- else }}
   OTEL_LOGS_ENABLED: "false"
   {{- end }}
   {{- if .Values.otel.traces.enabled }}
   OTEL_TRACES_ENABLED: "true"
-  OTEL_TRACES_RECEIVER_GRPC_ENDPOINT: {{ .Values.otel.traces.receiver.grpc.endpoint | quote }}
-  OTEL_TRACES_RECEIVER_HTTP_ENDPOINT: {{ .Values.otel.traces.receiver.http.endpoint | quote }}
+  OTEL_TRACES_RECEIVER_GRPC_ENDPOINT: {{ printf "%s:%v" .Values.otel.traces.receiver.grpc.host .Values.otel.traces.receiver.grpc.port | quote }}
+  OTEL_TRACES_RECEIVER_HTTP_ENDPOINT: {{ printf "%s:%v" .Values.otel.traces.receiver.http.host .Values.otel.traces.receiver.http.port | quote }}
   {{- else }}
   OTEL_TRACES_ENABLED: "false"
   {{- end }}
