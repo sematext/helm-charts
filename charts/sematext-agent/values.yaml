@@ -156,14 +156,14 @@ otel:
   # Service-specific OTel configuration
   # Example:
   # services:
-  #   catalog-service: "ecommerce-tokens"
-  #   payment-service: "ecommerce-tokens" 
-  #   frontend-service: "ecommerce-tokens"
+  #   catalog-service: "ecommerce"
+  #   payment-service: "ecommerce" 
+  #   frontend-service: "ecommerce"
   services: {}
   # Token groups for OTel services
   # Example:
   # token-groups:
-  #   ecommerce-tokens:
+  #   ecommerce:
   #     monitoring-token: "XXXX-XXXX-XXXX-XXXX"
   #     logs-token: "YYYY-YYYY-YYYY-YYYY"
   #     traces-token: "ZZZZ-ZZZZ-ZZZZ-ZZZZ"
