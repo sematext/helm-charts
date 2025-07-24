@@ -80,15 +80,18 @@ serviceAccount:
 
 # represents the infra token where most metrics, packages, processes, etc. are shipped (including container related)
 infraToken: null
-# logs token to send logs
+# default logs token to send logs. You can use this token for all OTel services or use the OTel token groups to define different tokens for different services.
 logsToken: null
+# default traces token to send traces. You can use this token for all OTel services or use the OTel token groups to define different tokens for different services.
+tracesToken: null
 # clusterName represents the name of the cluster
 clusterName: "<REPLACE_WITH_CLUSTER_NAME>"
-# instead of providing them directly, provide an existing secret from which infra token and logs token will be read (mutually exclusive with infraToken and logsToken)
+# instead of providing them directly, provide an existing secret from which infra token, logs token, and traces token will be read (mutually exclusive with infraToken, logsToken, and tracesToken)
 existingSecret:
   name: null
   hasLogsToken: false
   hasInfraToken: false
+  hasTracesToken: false
 
 # for private images
 # imagePullSecrets:
@@ -156,14 +159,14 @@ otel:
   # Service-specific OTel configuration
   # Example:
   # services:
-  #   catalog-service: "ecommerce-tokens"
-  #   payment-service: "ecommerce-tokens" 
-  #   frontend-service: "ecommerce-tokens"
+  #   catalog-service: "ecommerce"
+  #   payment-service: "ecommerce" 
+  #   frontend-service: "ecommerce"
   services: {}
   # Token groups for OTel services
   # Example:
   # token-groups:
-  #   ecommerce-tokens:
+  #   ecommerce:
   #     monitoring-token: "XXXX-XXXX-XXXX-XXXX"
   #     logs-token: "YYYY-YYYY-YYYY-YYYY"
   #     traces-token: "ZZZZ-ZZZZ-ZZZZ-ZZZZ"

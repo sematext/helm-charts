@@ -56,6 +56,13 @@ spec:
                 name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
                 key: logs-token
           {{- end }}
+          {{- if or (.Values.tracesToken) (.Values.existingSecret.hasTracesToken) }}
+          - name: TRACES_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: {{ default (include "sematext-agent.fullname" .) .Values.existingSecret.name }}
+                key: traces-token
+          {{- end }}
           - name: NODE_NAME
             valueFrom:
               fieldRef:
@@ -69,7 +76,7 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           {{- if .Values.otel.enabled }}
-          {{- range $groupName, $groupConfig := .Values.otel.token-groups }}
+          {{- range $groupName, $groupConfig := (index .Values.otel "token-groups") }}
           {{- if index $groupConfig "monitoring-token" }}
           - name: OTEL_{{ upper $groupName | replace "-" "_" }}_TOKEN_GROUP_MONITORING_TOKEN
             valueFrom:
