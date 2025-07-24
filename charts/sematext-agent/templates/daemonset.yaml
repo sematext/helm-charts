@@ -69,28 +69,41 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           {{- if .Values.otel.enabled }}
-          {{- range $appName, $appConfig := .Values.otel.apps }}
-          {{- if index $appConfig "monitoring-token" }}
-          - name: OTEL_APPS_{{ upper $appName | replace "-" "_" }}_MONITORING_TOKEN
+          {{- range $groupName, $groupConfig := .Values.otel.token-groups }}
+          {{- if index $groupConfig "monitoring-token" }}
+          - name: OTEL_{{ upper $groupName | replace "-" "_" }}_TOKEN_GROUP_MONITORING_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" $) $.Values.existingSecret.name }}
-                key: otel-{{ $appName }}-monitoring-token
+                key: otel-{{ $groupName }}-monitoring-token
           {{- end }}
-          {{- if index $appConfig "logs-token" }}
-          - name: OTEL_APPS_{{ upper $appName | replace "-" "_" }}_LOGS_TOKEN
+          {{- if index $groupConfig "logs-token" }}
+          - name: OTEL_{{ upper $groupName | replace "-" "_" }}_TOKEN_GROUP_LOGS_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" $) $.Values.existingSecret.name }}
-                key: otel-{{ $appName }}-logs-token
+                key: otel-{{ $groupName }}-logs-token
           {{- end }}
-          {{- if index $appConfig "traces-token" }}
-          - name: OTEL_APPS_{{ upper $appName | replace "-" "_" }}_TRACES_TOKEN
+          {{- if index $groupConfig "traces-token" }}
+          - name: OTEL_{{ upper $groupName | replace "-" "_" }}_TOKEN_GROUP_TRACES_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ default (include "sematext-agent.fullname" $) $.Values.existingSecret.name }}
-                key: otel-{{ $appName }}-traces-token
+                key: otel-{{ $groupName }}-traces-token
           {{- end }}
+          {{- end }}
+          {{- $processedGroups := dict }}
+          {{- range $serviceName, $groupName := .Values.otel.services }}
+          {{- if not (hasKey $processedGroups $groupName) }}
+          {{- $_ := set $processedGroups $groupName (list) }}
+          {{- end }}
+          {{- $servicesList := index $processedGroups $groupName }}
+          {{- $servicesList = append $servicesList $serviceName }}
+          {{- $_ := set $processedGroups $groupName $servicesList }}
+          {{- end }}
+          {{- range $groupName, $servicesList := $processedGroups }}
+          - name: OTEL_{{ upper $groupName | replace "-" "_" }}_TOKEN_GROUP_SERVICES
+            value: {{ join "," $servicesList | quote }}
           {{- end }}
           {{- end }}
           envFrom:
