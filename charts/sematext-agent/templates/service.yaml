@@ -15,6 +15,38 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+  {{- if .Values.otel.enabled }}
+  {{- if .Values.otel.metrics.enabled }}
+    - port: {{ .Values.otel.metrics.receiver.grpc.port }}
+      targetPort: {{ .Values.otel.metrics.receiver.grpc.port }}
+      protocol: TCP
+      name: otel-metrics-grpc
+    - port: {{ .Values.otel.metrics.receiver.http.port }}
+      targetPort: {{ .Values.otel.metrics.receiver.http.port }}
+      protocol: TCP
+      name: otel-metrics-http
+  {{- end }}
+  {{- if .Values.otel.logs.enabled }}
+    - port: {{ .Values.otel.logs.receiver.grpc.port }}
+      targetPort: {{ .Values.otel.logs.receiver.grpc.port }}
+      protocol: TCP
+      name: otel-logs-grpc
+    - port: {{ .Values.otel.logs.receiver.http.port }}
+      targetPort: {{ .Values.otel.logs.receiver.http.port }}
+      protocol: TCP
+      name: otel-logs-http
+  {{- end }}
+  {{- if .Values.otel.traces.enabled }}
+    - port: {{ .Values.otel.traces.receiver.grpc.port }}
+      targetPort: {{ .Values.otel.traces.receiver.grpc.port }}
+      protocol: TCP
+      name: otel-traces-grpc
+    - port: {{ .Values.otel.traces.receiver.http.port }}
+      targetPort: {{ .Values.otel.traces.receiver.http.port }}
+      protocol: TCP
+      name: otel-traces-http
+  {{- end }}
+  {{- end }}
   selector:
     app: {{ template "sematext-agent.name" . }}
     release: {{ .Release.Name }}

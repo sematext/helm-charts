@@ -12,16 +12,45 @@ data:
   {{- range $key, $val := .Values.agent.config }}
   {{ $key }}: {{ $val | quote }}
   {{- end }}
-  {{- if .Values.serverBaseUrl }}
-  SERVER_BASE_URL: {{ default "" .Values.serverBaseUrl | quote }}
+  {{- if and .Values.serverBaseUrl (ne .Values.serverBaseUrl "") }}
+  SERVER_BASE_URL: {{ .Values.serverBaseUrl | quote }}
   {{- end }}
-  {{- if .Values.eventsReceiverUrl }}
-  EVENTS_RECEIVER_URL: {{ default "" .Values.eventsReceiverUrl | quote }}
+  {{- if and .Values.eventsReceiverUrl (ne .Values.eventsReceiverUrl "") }}
+  EVENTS_RECEIVER_URL: {{ .Values.eventsReceiverUrl | quote }}
   {{- end }}
-  {{- if .Values.logsReceiverUrl }}
-  LOGS_RECEIVER_URL: {{ default "" .Values.logsReceiverUrl | quote }}
+  {{- if and .Values.logsReceiverUrl (ne .Values.logsReceiverUrl "") }}
+  LOGS_RECEIVER_URL: {{ .Values.logsReceiverUrl | quote }}
+  {{- end }}
+  {{- if and .Values.tracesReceiverUrl (ne .Values.tracesReceiverUrl "") }}
+  TRACES_RECEIVER_URL: {{ .Values.tracesReceiverUrl | quote }}
   {{- end }}
   API_SERVER_PORT: "{{ .Values.agent.service.port }}"
-  {{- if .Values.commandServerUrl }}
-  COMMAND_SERVER_URL: {{ default "" .Values.commandServerUrl | quote }}
+  {{- if and .Values.commandServerUrl (ne .Values.commandServerUrl "") }}
+  COMMAND_SERVER_URL: {{ .Values.commandServerUrl | quote }}
+  {{- end }}
+  {{- if .Values.otel.enabled }}
+  OTEL_ENABLED: "true"
+  {{- if .Values.otel.metrics.enabled }}
+  OTEL_METRICS_ENABLED: "true"
+  OTEL_METRICS_RECEIVER_GRPC_ENDPOINT: {{ printf "%s:%v" .Values.otel.metrics.receiver.grpc.host .Values.otel.metrics.receiver.grpc.port | quote }}
+  OTEL_METRICS_RECEIVER_HTTP_ENDPOINT: {{ printf "%s:%v" .Values.otel.metrics.receiver.http.host .Values.otel.metrics.receiver.http.port | quote }}
+  {{- else }}
+  OTEL_METRICS_ENABLED: "false"
+  {{- end }}
+  {{- if .Values.otel.logs.enabled }}
+  OTEL_LOGS_ENABLED: "true"
+  OTEL_LOGS_RECEIVER_GRPC_ENDPOINT: {{ printf "%s:%v" .Values.otel.logs.receiver.grpc.host .Values.otel.logs.receiver.grpc.port | quote }}
+  OTEL_LOGS_RECEIVER_HTTP_ENDPOINT: {{ printf "%s:%v" .Values.otel.logs.receiver.http.host .Values.otel.logs.receiver.http.port | quote }}
+  {{- else }}
+  OTEL_LOGS_ENABLED: "false"
+  {{- end }}
+  {{- if .Values.otel.traces.enabled }}
+  OTEL_TRACES_ENABLED: "true"
+  OTEL_TRACES_RECEIVER_GRPC_ENDPOINT: {{ printf "%s:%v" .Values.otel.traces.receiver.grpc.host .Values.otel.traces.receiver.grpc.port | quote }}
+  OTEL_TRACES_RECEIVER_HTTP_ENDPOINT: {{ printf "%s:%v" .Values.otel.traces.receiver.http.host .Values.otel.traces.receiver.http.port | quote }}
+  {{- else }}
+  OTEL_TRACES_ENABLED: "false"
+  {{- end }}
+  {{- else }}
+  OTEL_ENABLED: "false"
   {{- end }}
