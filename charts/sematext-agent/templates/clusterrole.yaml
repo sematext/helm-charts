@@ -96,6 +96,13 @@ rules:
   - watch
   - list
 - apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - list
+  - watch
+- apiGroups:
   - coordination.k8s.io
   resources:
   - leases
