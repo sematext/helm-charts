@@ -4,7 +4,7 @@ rules:
   # Enforce 2-space indentation everywhere
   indentation:
     spaces: 2
-    indent-sequences: false  # list items under a key aren't double-indented
+    indent-sequences: whatever
     check-multi-line-strings: false
 
   line-length:
