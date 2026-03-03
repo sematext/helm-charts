@@ -15,23 +15,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: pip-yamllint-1.35.1
-
-      - name: Install yamllint
-        run: pip install yamllint==1.35.1
-
       - name: Lint non-template YAML files
         # Excludes Helm templates (they contain {{ }} which isn't valid YAML)
-        run: |
-          yamllint -c .yamllint.yaml \
-            ct.yaml \
-            .pre-commit-config.yaml \
-            charts/sematext-agent/values.yaml \
-            charts/sematext-agent/ci/*.yaml
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_file: .yamllint.yaml
+          file_or_dir: >
+            ct.yaml
+            .pre-commit-config.yaml
+            charts/sematext-agent/values.yaml
+            charts/sematext-agent/ci/
 
   lint-test:
     runs-on: ubuntu-latest
