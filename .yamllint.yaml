@@ -1,7 +1,6 @@
 extends: default
 
 rules:
-  # Enforce 2-space indentation everywhere
   indentation:
     spaces: 2
     indent-sequences: whatever
@@ -11,14 +10,11 @@ rules:
     max: 150
     level: warning
 
-  # Allow multiple blank lines in values.yaml for readability
   empty-lines:
     max: 2
 
-  # Don't require document start (---)
   document-start: disable
 
-  # Allow truthy values like `true`/`false` without quoting
   truthy:
     allowed-values: ['true', 'false']
     check-keys: false

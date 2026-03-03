@@ -1,15 +1,5 @@
-# Full install: infra + logs + traces tokens
 infraToken: "00000000-0000-0000-0000-000000000001"
 logsToken: "00000000-0000-0000-0000-000000000002"
 tracesToken: "00000000-0000-0000-0000-000000000003"
 clusterName: "ci-test-cluster"
-
-rbac:
-  create: true
-
-serviceAccount:
-  create: true
-
 hostNetwork: false
-
-region: US
