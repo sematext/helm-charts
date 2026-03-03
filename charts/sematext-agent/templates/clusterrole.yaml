@@ -35,6 +35,16 @@ rules:
     - jobs
   verbs:
     - list
+    - get
+    - watch
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - list
+  - get
+  - watch
 {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
 - nonResourceURLs:
   - /metrics
@@ -95,13 +105,6 @@ rules:
   - get
   - watch
   - list
-- apiGroups:
-  - discovery.k8s.io
-  resources:
-  - endpointslices
-  verbs:
-  - list
-  - watch
 - apiGroups:
   - coordination.k8s.io
   resources:
