@@ -17,17 +17,17 @@ agent:
     LOGGING_REQUEST_TRACKING: false
     LOGGING_LEVEL: info
   resources:
-      limits:
-        memory: "512Mi"
-        cpu: "800m"  
+    limits:
+      memory: "512Mi"
+      cpu: "800m"
 
 logagent:
   image:
     repository: sematext/logagent
     tag: latest
     pullPolicy: Always
-  
-  # Refer to Logagent docs for adding env vars to the config at 
+
+  # Refer to Logagent docs for adding env vars to the config at
   # https://sematext.com/docs/logagent/installation-docker/#configuration-parameters
   # Any Logagent env var can be added here in the `config`.
   config:
@@ -160,7 +160,7 @@ otel:
   # Example:
   # services:
   #   catalog-service: "ecommerce"
-  #   payment-service: "ecommerce" 
+  #   payment-service: "ecommerce"
   #   frontend-service: "ecommerce"
   services: {}
   # Token groups for OTel services

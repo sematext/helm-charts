@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [-c, .yamllint.yaml]
+        exclude: "charts/.*/templates/.*\\.yaml$"
+
+  # requires `ct` and `helm` on PATH: brew install chart-testing helm
+  - repo: local
+    hooks:
+      - id: ct-lint
+        name: ct lint
+        language: system
+        entry: ct lint --config ct.yaml
+        pass_filenames: false
+        files: "charts/"
