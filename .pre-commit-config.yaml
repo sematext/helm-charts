@@ -17,9 +17,12 @@ repos:
         args: [-c, .yamllint.yaml]
         exclude: "charts/.*/templates/.*\\.yaml$"  # helm templates use {{ }} which yamllint can't parse
 
-  # helm lint via ct
-  - repo: https://github.com/helm/chart-testing
-    rev: v3.11.0
+  # helm lint — requires `ct` and `helm` to be installed locally
+  - repo: local
     hooks:
-      - id: ct
-        args: [lint, --config, ct.yaml]
+      - id: ct-lint
+        name: ct lint
+        language: system
+        entry: ct lint --config ct.yaml
+        pass_filenames: false
+        files: "charts/"
