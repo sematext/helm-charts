@@ -29,14 +29,14 @@ rules:
   - get
   - watch
 - apiGroups:
-    - batch
+  - batch
   resources:
-    - cronjobs
-    - jobs
+  - cronjobs
+  - jobs
   verbs:
-    - list
-    - get
-    - watch
+  - list
+  - get
+  - watch
 - apiGroups:
   - discovery.k8s.io
   resources:

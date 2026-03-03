@@ -1,0 +1,11 @@
+# Minimal install: logs token only (no infraToken)
+logsToken: "00000000-0000-0000-0000-000000000001"
+clusterName: "ci-test-cluster"
+
+rbac:
+  create: true
+
+serviceAccount:
+  create: true
+
+hostNetwork: false
