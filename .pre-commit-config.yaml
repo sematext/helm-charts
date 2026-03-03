@@ -1,23 +1,20 @@
 repos:
-  # YAML formatting — catches indentation issues like the batch apiGroup bug
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
       - id: check-yaml
-        args: [--unsafe]  # --unsafe needed for Helm templates with {{ }}
+        args: [--unsafe]
       - id: trailing-whitespace
       - id: end-of-file-fixer
-        exclude: "charts/.*/templates/.*\\.yaml$"  # helm templates may be intentionally empty-terminated
 
-  # yamllint — enforces consistent indentation across all YAML
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.35.1
     hooks:
       - id: yamllint
         args: [-c, .yamllint.yaml]
-        exclude: "charts/.*/templates/.*\\.yaml$"  # helm templates use {{ }} which yamllint can't parse
+        exclude: "charts/.*/templates/.*\\.yaml$"
 
-  # helm lint — requires `ct` and `helm` to be installed locally
+  # requires `ct` and `helm` on PATH: brew install chart-testing helm
   - repo: local
     hooks:
       - id: ct-lint

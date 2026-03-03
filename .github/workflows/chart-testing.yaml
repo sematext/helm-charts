@@ -16,7 +16,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Lint non-template YAML files
-        # Excludes Helm templates (they contain {{ }} which isn't valid YAML)
         uses: ibiqlik/action-yamllint@v3
         with:
           config_file: .yamllint.yaml
@@ -67,5 +66,4 @@ jobs:
 
       - name: Run chart-testing (install)
         if: steps.list-changed.outputs.changed == 'true'
-        # ct install runs `helm install` + `helm test` for each ci/ values file
         run: ct install --config ct.yaml
