@@ -3,6 +3,6 @@ target-branch: master
 chart-dirs:
   - charts
 chart-repos: []
-helm-extra-args: "--timeout 60s"
+helm-extra-args: "--timeout 120s"
 check-version-increment: true
 debug: false
