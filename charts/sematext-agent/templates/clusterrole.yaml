@@ -45,6 +45,14 @@ rules:
   - list
   - get
   - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - list
+  - get
+  - watch
 {{- if or (.Values.infraToken) (.Values.existingSecret.hasInfraToken) }}
 - nonResourceURLs:
   - /metrics
